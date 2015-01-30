@@ -16,6 +16,7 @@ gem 'sequel-rails'
 gem 'unicorn'
 gem 'bower-rails'
 gem 'angular-rails-templates'
+gem 'angular_rails_csrf'
 gem 'haml-rails'
 
 # gem 'capistrano-rails', group: :development

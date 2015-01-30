@@ -3,14 +3,14 @@
     %h1.md-toolbar-tools
       Darts Entries
   %md-content.md-padding
-    %form{name: 'entryform'}
+    %form{name: 'playerform', ng: {submit: 'save()'}}
       %div{flex: true, layout: 'row'}
         %md-input-container{flex: 40}
           %label
             Name
-          %input{required: true, name: 'name', ng: {model: 'entry.name'}}
+          %input{required: true, name: 'name', ng: {model: 'player.name'}}
         %md-input-container{flex: true}
-        %md-button.md-primary.md-fab.md-raised{aria: {label: 'Save'}, style: 'padding: 1em;'}
+        %md-button.md-primary.md-fab.md-raised{aria: {label: 'Save'}, style: 'padding: 1em;', type: 'submit'}
           %md-icon{icon: asset_path('material-design-icons/content/svg/design/ic_add_24px.svg'), style: 'width: 24px, height: 24px'}
     %md-divider
     %md-toolbar.md-accent.md-hue-1
@@ -23,9 +23,9 @@
             .md-tile-content
               %div{layout: 'row' , 'layout-align' => 'start center' }
                 %div{flex: 5} {{$index+1}}.
-                %div{flex: 60} {{entry.name}}
-                %div{flex: 20}
-                  %md-button.md-fab.md-warn{aria: {label: 'Delete'}, style: 'padding: 1em'}
-                    %md-icon{icon: asset_path('material-design-icons/action/svg/design/ic_delete_24px.svg'), style: 'width: 24px, height: 24px'}
+                %div{flex: 80} {{entry.name}}
+                %md-button.md-fab.md-warn{aria: {label: 'Delete'}, style: 'padding: 1em', ng: {click: "delete(entry)"}}
+                  %span
+                    %md-icon.img24{icon: asset_path('material-design-icons/action/svg/design/ic_delete_24px.svg')}
 
           %md-divider.md-inset{ng: {if: '!$last'}}
