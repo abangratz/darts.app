@@ -13,4 +13,4 @@
  *= require_tree .
  *= require_self
  */
-@import 'angular-material.css'
+@import url(asset-path('angular-material.css'));
