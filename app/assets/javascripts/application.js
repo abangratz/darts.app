@@ -12,4 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular/angular
+//= require angular-aria/angular-aria
+//= require angular-animate/angular-animate
+//= require hammerjs/hammer
+//= require angular-material/angular-material
+//= require angular-route/angular-route
+//= require angular-resource/angular-resource
+//= require angular-rails-templates
 //= require_tree .

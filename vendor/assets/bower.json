@@ -1,7 +1,11 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
+    "jquery": "latest",
+    "angular-material": "latest",
     "angular": "latest",
-    "bootstrap-sass-official": "latest"
+    "angular-route": "latest",
+    "angular-resource": "latest",
+    "material-design-icons": "latest"
   }
 }

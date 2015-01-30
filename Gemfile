@@ -12,9 +12,11 @@ gem 'rails_12factor'
 gem 'figaro'
 gem 'pg'
 gem 'sequel_pg', require: false
-gem 'sequel'
+gem 'sequel-rails'
 gem 'unicorn'
 gem 'bower-rails'
+gem 'angular-rails-templates'
+gem 'haml-rails'
 
 # gem 'capistrano-rails', group: :development
 

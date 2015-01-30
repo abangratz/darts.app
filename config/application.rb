@@ -28,8 +28,21 @@ module DartsApp
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
-    config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
-    config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
+    config.assets.paths << Rails.root.join("vendor","assets","bower_components","angular-material")
+    config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff|woff2)$)
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: false,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        controller_specs: true
+      g.assets true
+      g.helper false
+      g.javascripts true
+      g.javascript_engine :coffee
+      g.stylesheets false
+    end
 
 
   end
