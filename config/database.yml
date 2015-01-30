@@ -1,3 +1,10 @@
 development:
   adapter: postgres
+  database: darts
   url: 'postgres:///darts'
+
+production:
+  adapter: postgres
+  database: darts
+  url: <%= ENV['DATABASE_URL'] %>
+
