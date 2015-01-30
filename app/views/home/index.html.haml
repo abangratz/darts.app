@@ -5,11 +5,11 @@
   %md-content.md-padding
     %form{name: 'playerform', ng: {submit: 'save()'}}
       %div{flex: true, layout: 'row'}
-        %md-input-container{flex: 40}
+        %md-input-container{flex: 20}
           %label
             Name
           %input{required: true, name: 'name', ng: {model: 'player.name'}}
-        %md-input-container{flex: true}
+        %md-input-container{flex: 10}
         %md-button.md-primary.md-fab.md-raised{aria: {label: 'Save'}, style: 'padding: 1em;', type: 'submit'}
           %md-icon{icon: asset_path('material-design-icons/content/svg/design/ic_add_24px.svg'), style: 'width: 24px, height: 24px'}
     %md-divider
@@ -23,7 +23,7 @@
             .md-tile-content
               %div{layout: 'row' , 'layout-align' => 'start center' }
                 %div{flex: 5} {{$index+1}}.
-                %div{flex: 80} {{entry.name}}
+                %div{flex: 40} {{entry.name}}
                 %md-button.md-fab.md-warn{aria: {label: 'Delete'}, style: 'padding: 1em', ng: {click: "delete(entry)"}}
                   %span
                     %md-icon.img24{icon: asset_path('material-design-icons/action/svg/design/ic_delete_24px.svg')}
