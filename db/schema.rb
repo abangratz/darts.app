@@ -3,6 +3,9 @@ Sequel.migration do
     create_table(:players) do
       primary_key :id
       column :name, "character varying"
+      column :at, "date"
+      
+      index [:name, :at], :unique=>true
     end
     
     create_table(:schema_migrations) do

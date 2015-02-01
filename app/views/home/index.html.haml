@@ -1,11 +1,13 @@
-%div{layout: 'column',ng: {app: 'darts', controller: 'EntryController'}, role: 'main', 'layout-padding' => true, 'layout-margin' => true}
-  %md-toolbar.md-primary
+%div{layout: 'column',ng: {app: 'darts', controller: 'EntryController'}, role: 'main', 'layout-fill' => true, 'layout-margin' => true}
+  %md-toolbar.md-primary{layout: 'row'}
     %h1.md-toolbar-tools
       Darts Entries
+    .md-toolbar-tools
+      =date_field_tag(:player_date, nil, {'ng-model' => 'player.at', 'ng-change' => 'reload()'})
   %md-content.md-padding
     %form{name: 'playerform', ng: {submit: 'save()'}}
       %div{flex: true, layout: 'row'}
-        %md-input-container{flex: 20}
+        %md-input-container{flex: true}
           %label
             Name
           %input{required: true, name: 'name', ng: {model: 'player.name'}}
@@ -13,9 +15,11 @@
         %md-button.md-primary.md-fab.md-raised{aria: {label: 'Save'}, style: 'padding: 1em;', type: 'submit'}
           %md-icon{icon: asset_path('material-design-icons/content/svg/design/ic_add_24px.svg'), style: 'width: 24px, height: 24px'}
     %md-divider
-    %md-toolbar.md-accent.md-hue-1
-      %h3.md-toolbar-tools
-        Player List
+    %md-toolbar.md-accent.md-hue-1{layout: 'row'}
+      %h3.md-toolbar-tools{flex: 10}
+        Players
+      %div.md-toolbar-tools{flex: true}
+        %small Count: {{entries.length}}
     %md-content.md-padding
       %md-list
         %md-item{ng: {repeat: 'entry in entries'}}
@@ -23,7 +27,7 @@
             .md-tile-content
               %div{layout: 'row' , 'layout-align' => 'start center' }
                 %div{flex: 5} {{$index+1}}.
-                %div{flex: 40} {{entry.name}}
+                %div{flex: true} {{entry.name}}
                 %md-button.md-fab.md-warn{aria: {label: 'Delete'}, style: 'padding: 1em', ng: {click: "delete(entry)"}}
                   %span
                     %md-icon.img24{icon: asset_path('material-design-icons/action/svg/design/ic_delete_24px.svg')}

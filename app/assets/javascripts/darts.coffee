@@ -20,13 +20,23 @@ darts = angular.module('darts', ['ngMaterial', 'templates', 'ngRoute', 'playerSe
 	])
 
 darts.controller('EntryController', ['$scope', 'Players', 'Player', ($scope, Players, Player) ->
-	$scope.entries = Players.query()
+	$scope.player = {name: '', at: new Date()} unless $scope.player and $scope.player.at isnt null
+	$scope.reload = () ->
+		$scope.entries = Players.query({at: $scope.player.at})
 	$scope.save = () ->
 		if $scope.playerform.$valid
-			Players.create({player: $scope.player}, () ->
-				$scope.entries =  Players.query())
+			Players.create({player: $scope.player}, (data) ->
+				new_player =
+					id: data.id
+					name: data.name
+					at: data.at
+				$scope.entries.push new_player
+				$scope.player.name = ''
+			)
 	$scope.delete = (entry) ->
 		Player.delete({id: entry.id}, () ->
-				$scope.entries =  Players.query())
+			$scope.entries = $scope.entries.filter (e) -> e isnt entry
+		)
+	$scope.reload()
 ])
 
